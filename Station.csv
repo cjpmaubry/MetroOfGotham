@@ -1,88 +1,91 @@
 "ID","NAME","X","Y","CONNECTION"
-1,"Duscan St",384,873,
-2,"Stoppart",408,838,
-3,"Oranion Bridge",407,818,
-4,"North Sheet",125,800,
-5,"Pettsburg Central",553,835,
-6,"Ostham International Terminals 1-2",617,832,
-7,"Ostham International Terminals 2-4",617,765,
-8,"Tettry",555,800,
-9,"Sheal Central",125,764,
-10,"Granton",380,742,
-11,"Gotham Stadium",408,732,
-12,"Liberty",345,711,
-13,"City Industrial Park",125,677,
-14,"Endbury",326,663,
-15,"Peppling",353,663,
-16,"Court St",424,674,
-17,"Faltore",491,678,
-18,"South Farrow",491,666,
-19,"Hackon",539,631,
-20,"Bryon Ave",574,631,
-21,"Jerrold",408,612,
-22,"Harrison St",330,603,
-23,"South Park",214,584,
-24,"Leggart",174,623,
-25,"Wingsway",62,602,
-26,"The Pass",127,541,
-27,"Reither",172,495,
-28,"Exit Row",255,542,
-29,"Belcom",283,512,
-30,"Ashing",320,476,
-31,"Sallow",330,557,
-32,"Marlon",330,532,
-33,"Fleeting",404,480,
-34,"Hackart",493,583,
-35,"North Gainsly",493,496,
-36,"Yeavely",575,569,
-37,"Gainsly West",606,522,
-38,"West Harlow",16,357,
-39,"Patterden",48,357,
-40,"Lower Sheal",90,357,
-41,"Townsend",203,466,
-42,"Admiral Way",260,433,
-43,"The Arena",360,433,
-44,"Good St",393,400,
-45,"Priwy",418,376,
-46,"Merchants Square",440,400,
-47,"The Banks",547,395,
-48,"Prosper St",497,454,
-49,"23rd St",547,462,
-50,"Quinsville",126,335,
-51,"Sheal Bridge",179,333,
-52,"Harlow",270,333,
-53,"New St",326,346,
-54,"The Exchange",358,352,
-55,"The Narrows",442,351,
-56,"West Harslow",241,297,
-57,"Sansom",358,317,
-58,"Kinsley",496,347,
-59,"Rootsville",611,306,
-60,"West Horslow",6,273,
-61,"Horslow",71,273,
-62,"Dithsershing",135,273,
-63,"Kattering",195,273,
-64,"Stokely",312,271,
-65,"Murtagh",426,264,
-66,"St Andrew",468,287,
-67,"Rootsville Bridge",476,271,
-68,"Wayne Central",552,272,
-69,"The Gantry",572,270,
-70,"Docks Bridge",200,133,
-71,"Pertslyn North",202,187,
-72,"China Docks",252,207,
-73,"Saunders",275,228,
-74,"Stevensburgh",363,206,
-75,"The Docks",367,140,
-76,"Haysville South",429,175,
-77,"Dullich",429,202,
-78,"Haysville ",524,184,
-79,"East City Park",503,203,
-80,"East Dockland",607,236,
-81,"Pertslyn South",112,10,
-82,"Pertslyn Central",158,89,
-83,"South Hinklay",202,10,
-84,"South Island",287,113,
-85,"Farrow",621,689,
-86,"North City Cross",493,583,
-87,"Iberlow",294,297,
+1,"Duscan St",384,873,2
+2,"Stoppart",408,838,1;3
+3,"Granton Bridge",407,818,2;10
+4,"North Sheal",125,800,9
+5,"Pettsburg Central",553,835,6;8
+6,"Ostham International Terminals 1-2",617,832,5;7
+7,"Ostham International Terminals 2-4",617,765,6;85
+8,"Tettry",555,800,5;88
+9,"Sheal Central",125,764,4;13
+10,"Granton",380,742,3;12
+11,"Gotham Stadium",408,732,21
+12,"Liberty",345,711,3;14
+13,"City Industrial Park",125,677,9;24;26
+14,"Endbury",326,663,12;15;22
+15,"Peppling",353,663,14;16
+16,"Court St",424,674,15;18
+17,"Faltore",491,678,18;88
+18,"South Farrow",491,666,16;17;19;89
+19,"Hackon",539,631,18;20
+20,"Bryon Ave",574,631,19;85;36
+21,"Jerrold",408,612,11;90
+22,"Harrison St",330,603,14;31
+23,"South Park",214,584,24;28
+24,"Leggart",174,623,23;13
+25,"Wingsway",62,602,26
+26,"The Pass",127,541,25;27;50
+27,"Reither",172,495,26;41
+28,"Exit Row",255,542,23;29
+29,"Belcom",283,512,28;30
+30,"Ashing",320,476,29;43
+31,"Sallow",330,557,22;32
+32,"Marlon",330,532,31;33
+33,"Fleeting",404,480,32;90;43;46
+34,"Hackart",493,583,32;90
+35,"North Gainsly",493,496,34;48
+36,"Yeavely",575,569,20;37
+37,"Gainsly West",606,522,36;49
+38,"West Harlow",16,357,39
+39,"Patterden",48,357,38;40
+40,"Lower Sheal",90,357,39;50
+41,"Townsend",203,466,27;42
+42,"Admiral Way",260,433,41;43
+43,"The Arena",360,433,42;54;44;46;33;30
+44,"Good St",393,400,43;54;45;46
+45,"Priwy",418,376,44;46;55;57
+46,"Merchants Square",440,400,44;45;55;47;48;33;43
+47,"The Banks",547,395,46;49;59;68
+48,"Prosper St",497,454,49;35;46;58
+49,"23rd St",547,462,48;37;34
+50,"Quinsville",126,335,26;40;51
+51,"Sheal Bridge",179,333,50;52
+52,"Harlow",270,333,51;53
+53,"New St",326,346,52;54
+54,"The Exchange",358,352,53;43;44;57;87
+55,"The Narrows",442,351,45;46;66;65
+56,"West Harslow",241,297,87;63;73;42
+57,"Sansom",358,317,45;54;74;64
+58,"Kinsley",496,347,46;48;69;67
+59,"Rootsville",611,306,47;69;80
+60,"West Horslow",6,273,61
+61,"Horslow",71,273,60;62
+62,"Dithsershing",135,273,61;63
+63,"Kattering",195,273,62;56
+64,"Stokely",312,271,57;73
+65,"Murtagh",426,264,55;77
+66,"St Andrew",468,287,55;79
+67,"Rootsville Bridge",476,271,68;58;74
+68,"Wayne Central",552,272,67;69;47;79
+69,"The Gantry",572,270,68;58;59;80
+70,"Docks Bridge",200,133,82;71
+71,"Pertslyn North",202,187,70;72
+72,"China Docks",252,207,71;73
+73,"Saunders",275,228,72;56;64;74
+74,"Stevensburgh",363,206,73;57;67;77;75
+75,"The Docks",367,140,74;84
+76,"Haysville South",429,175,77
+77,"Dullich",429,202,76;74;79;65
+78,"Haysville ",524,184,79;80
+79,"East City Park",503,203,78;68;66;77
+80,"East Dockland",607,236,78;59;69
+81,"Pertslyn South",112,10,82
+82,"Pertslyn Central",158,89,81;70
+83,"South Hinklay",202,10,84
+84,"South Island",287,113,83;75
+85,"Farrow",621,689,7;20
+86,"North City Cross",493,583,34,89
+87,"Iberlow",294,297,54;56
+88,"Farrow2",491,730,8;17
+89,"Lemmars",492,630,86;18
+90,"Midtown",404,532,33;34;32;21
