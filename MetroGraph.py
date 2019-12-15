@@ -1,4 +1,5 @@
 import csv
+import math
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -46,6 +47,13 @@ def DrawGraph():
     nx.draw(G,pos = testing_positions,with_labels=True)
     nx.draw_networkx_edge_labels(G,pos)
     plt.show()
+
+
+def getDistance(indice1,indice2,dataset):
+    distance =0
+    for x in range(1): # de 0 à 1 car on a 2 dimensions
+        distance += pow((float(dataset[indice1][x+1])-float(dataset[indice2][x+1])),2)
+    return math.sqrt(distance)
 
 
 def main():
