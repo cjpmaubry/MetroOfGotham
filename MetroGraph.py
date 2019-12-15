@@ -29,6 +29,9 @@ def ExtractionInfoFromFile():
         file.close()
     return positions_dict
 
+def DistanceBetweenStations():
+    plot()
+
 #Creates a matix of the vertices and then displays the graph associated
 def DrawGraph():
     position_of_vertices = ExtractionInfoFromFile()
@@ -40,7 +43,7 @@ def DrawGraph():
                 [6, 8, 0, 0, 9],
                 [0, 5, 7, 9, 0]])
 
-    #waiting commetns from @cpjmaubry
+    #waiting comments from @cpjmaubry
     G = nx.from_numpy_matrix(A)
     pos=nx.spring_layout(G)
     nx.draw(G,pos = testing_positions,with_labels=True)
