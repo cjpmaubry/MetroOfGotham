@@ -16,4 +16,5 @@ nx.draw(G,pos,with_labels=True)
 
 nx.draw_networkx_edge_labels(G,pos)
 
+#BLABLABLA
 plt.show()
