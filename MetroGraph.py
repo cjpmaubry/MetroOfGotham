@@ -6,32 +6,29 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 #Returns the id and position of the stations in a dict ( use a dataset to find the info)
-def ExtractionInfoFromFile(dataset):
+def ExtractionCoordonateOfStation(dataset):
     #initialises empty dict
     positions_dict = {0: (0,0)}
     for k in range(1,91): # begin at 1 to skip the first line / 91 for the number of line in csv
         #Browse all lines
         positions_dict[int(dataset[k][0]) - 1] = (int(dataset[k][2]), int(dataset[k][3]))
-        print(int(dataset[k][0]) - 1, " : ", positions_dict[int(dataset[k][0]) - 1])
+        #print(int(dataset[k][0]) - 1, " : ", positions_dict[int(dataset[k][0]) - 1])
     return positions_dict
 
 #Creates a matix of the vertices and then displays the graph associated
-def DrawGraph():
+def DrawGraph(dataset):
 
-    testing_positions = {0: (10, 10), 1: (30, 15), 2: (10, 30), 3: (20, 20), 4: (100,150)}
+    positions_dict = ExtractionCoordonateOfStation(dataset)
+    testing_positions = positions_dict
 
-    A = np.matrix([ [0, 2, 0, 6, 0],
-                [2, 0, 3, 8, 5],
-                [0, 3, 0, 0, 7],
-                [6, 8, 0, 0, 9],
-                [0, 5, 7, 9, 0]])
+    A = CreateMatrix(dataset) # Recovery the matrix of connection
 
-    #waiting commetns from @cpjmaubry
+
     G = nx.from_numpy_matrix(A)
-    pos=nx.spring_layout(G)
-    nx.draw(G,pos = testing_positions,with_labels=True)
-    nx.draw_networkx_edge_labels(G,pos)
-    plt.show()
+    pos=nx.spring_layout(G) # Define coordonate of the station
+    nx.draw(G,pos = testing_positions,with_labels=True) #Create the Station on the graph and the edge
+    #nx.draw_networkx_edge_labels(G,pos)
+    plt.show() # Display the Graph
 
 
 def getDistance(indice1,indice2,dataset):
@@ -72,10 +69,19 @@ def FindTheConnection(string):
     return tab
 
 
+def CreateMatrix(dataset):
+    matrix=np.zeros((90,90))
+    listconnection=DefineConnection(dataset)
+    a=len(listconnection)
+    for tab in range (0,len(listconnection)):
+        matrix[int(listconnection[tab][0])-1][int(listconnection[tab][1])-1] = float(listconnection[tab][2])
+    return matrix
+
+
+
 def main():
     dataset=GiveDataSet()
-    DefineConnection(dataset)
-    ExtractionInfoFromFile(dataset)
+    DrawGraph(dataset)
 
 if __name__ == "__main__":
     main()
