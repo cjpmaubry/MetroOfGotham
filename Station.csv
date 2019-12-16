@@ -1,7 +1,7 @@
 "ID","NAME","X","Y","CONNECTION"
 1,"Duscan St",384,873,2
 2,"Stoppart",408,838,1;3
-3,"Granton Bridge",407,818,2;1
+3,"Granton Bridge",407,818,2;10
 4,"North Sheal",125,800,9
 5,"Pettsburg Central",553,835,6;8
 6,"Ostham International Terminals 1-2",617,832,5;7
@@ -10,7 +10,7 @@
 9,"Sheal Central",125,764,4;13
 10,"Granton",380,742,3;12
 11,"Gotham Stadium",408,732,21
-12,"Liberty",345,711,3;14
+12,"Liberty",345,711,10;14
 13,"City Industrial Park",125,677,9;24;26
 14,"Endbury",326,663,12;15;22
 15,"Peppling",353,663,14;16
@@ -32,7 +32,7 @@
 31,"Sallow",330,557,22;32
 32,"Marlon",330,532,31;33
 33,"Fleeting",404,480,32;90;43;46
-34,"Hackart",493,583,32;90
+34,"Hackart",493,532,32;90
 35,"North Gainsly",493,496,34;48
 36,"Yeavely",575,569,20;37
 37,"Gainsly West",606,522,36;49
@@ -84,7 +84,7 @@
 83,"South Hinklay",202,10,84
 84,"South Island",287,113,83;75
 85,"Farrow",621,689,7;20
-86,"North City Cross",493,583,34,89
+86,"North City Cross",493,583,34;89
 87,"Iberlow",294,297,54;56
 88,"Farrow2",491,730,8;17
 89,"Lemmars",492,630,86;18
