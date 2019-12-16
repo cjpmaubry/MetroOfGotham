@@ -1,7 +1,7 @@
 "ID","NAME","X","Y","CONNECTION"
 1,"Duscan St",384,873,2
 2,"Stoppart",408,838,1;3
-3,"Granton Bridge",407,818,2;10
+3,"Granton Bridge",407,818,2;1
 4,"North Sheal",125,800,9
 5,"Pettsburg Central",553,835,6;8
 6,"Ostham International Terminals 1-2",617,832,5;7
@@ -27,7 +27,7 @@
 26,"The Pass",127,541,25;27;50
 27,"Reither",172,495,26;41
 28,"Exit Row",255,542,23;29
-29,"Belcom",283,512,28;30
+29,"Belcom",283,512,28;30;32;42
 30,"Ashing",320,476,29;43
 31,"Sallow",330,557,22;32
 32,"Marlon",330,532,31;33
