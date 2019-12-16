@@ -18,7 +18,11 @@ Contributors :
 # Part 1 
 ### Display graph and solution on connected network
 We had to extract from the [image](map_gotham_metro.jpg) of the gotham metro network the position of the stations and display a graph with the different connections.
-We put by hand the information in a [csv file](Station.csv) in order to store the information.
+We put by **hand** the information in a [csv file](Station.csv) in order to store the information.
 (The coordinates are in Pixels.)
 
 The display of the graphs and solution can be seen in [this file MetroGRaph.py](MetroGraph.py)
+
+#### 1-2-Which kind of algorithm create a connected graph while minimizing the total amount of distance? Show the algorithm? What is its complexity?
+The algorith we are going to use is **Prim's Minimum Spanning Tree**. We implemented it in [this file CHANGE URL](MetroGraph.py).
+It has a complexity of **EV log(V)** (E = edges and V = vertices).
