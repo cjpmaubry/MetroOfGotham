@@ -7,8 +7,50 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-# ----------------------------------------------------------------- METHOD PART ------------------------------------------------------
+# ----------------------------------------------------------------- METHODS ------------------------------------------------------
 
+# ----------------------------- DATASET CONSTRUCTION ----------------------------- #
+#Get the csv file and create a dataset with it
+def GiveDataSet():
+    #finding the folder and file
+    data_folder = Path("MetroOfGotham/")
+    file_to_open = data_folder / "Station.csv"
+    with open(file_to_open, "r") as csvfile:
+        lines = csv.reader(csvfile)
+        dataset=list(lines)
+    return dataset
+
+#Creates Matrix of connection (Edges) using the dataset
+def CreateMatrix(dataset):
+    matrix=np.zeros((90,90))
+    listconnection=DefineConnection(dataset)
+    a=len(listconnection)
+    for tab in range (0,len(listconnection)):
+        matrix[int(listconnection[tab][0])-1][int(listconnection[tab][1])-1] = float(listconnection[tab][2])
+    return matrix
+
+#Creates a list which includes all the connections (Edges) between the Station
+def DefineConnection(dataset):  
+    listconnection=[]
+    for i in range(1,91): # begin at 1 to skip the first line 
+        #Browse all lines  
+        tab=FindTheConnection(dataset[i][4])
+        for k in range(0,len(tab)):
+            tab2=[dataset[i][0],tab[k],getDistance(dataset[i][0],tab[k],dataset)]
+            listconnection.append(tab2)             
+    return listconnection
+
+#Split the string using as separator ";"
+def FindTheConnection(string):
+    tab=string.split(';')
+    return tab
+
+#Give the euclidian distance between 2 Stations of a dataset
+def getDistance(indice1,indice2,dataset):
+    distance =0
+    for x in range(2,4): #  on a 2 dimensions
+        distance += pow((float(dataset[int(indice1)][x])-float(dataset[int(indice2)][x])),2)
+    return math.sqrt(distance)
 
 #Returns the id and position of the stations in a dict ( use a dataset to find the info)
 def ExtractionCoordonateOfStation(dataset):
@@ -20,6 +62,7 @@ def ExtractionCoordonateOfStation(dataset):
     return positions_dict
 
 
+# ----------------------------- CREATION AND DISPLAY OF GRAPHS  ---------------------------- #
 #Creates a matix of the vertices and then displays the graph associated
 def DrawGraphs(dataset):
     positions_dict = ExtractionCoordonateOfStation(dataset)
@@ -37,54 +80,6 @@ def  CreateGraphStation(A,positions):
     G = nx.from_numpy_matrix(A)
     pos=nx.spring_layout(G) # Define coordonate of the station
     nx.draw(G,pos = positions,with_labels=True) #Create the Station on the graph and the edge
-    
-
-#Give the euclidian distance between 2 Stations of a dataset
-def getDistance(indice1,indice2,dataset):
-    distance =0
-    for x in range(2,4): #  on a 2 dimensions
-        distance += pow((float(dataset[int(indice1)][x])-float(dataset[int(indice2)][x])),2)
-    return math.sqrt(distance)
-
-
-#Get the csv file and create a dataset with it
-def GiveDataSet():
-    #finding the folder and file
-    data_folder = Path("MetroOfGotham/")
-    file_to_open = data_folder / "Station.csv"
-    with open(file_to_open, "r") as csvfile:
-        lines = csv.reader(csvfile)
-        dataset=list(lines)
-    return dataset
-
-
-
-#Create a list which includes all the connection (the edges) between the Station
-def DefineConnection(dataset):  
-    listconnection=[]
-    for i in range(1,91): # begin at 1 to skip the first line 
-        #Browse all lines  
-        tab=FindTheConnection(dataset[i][4])
-        for k in range(0,len(tab)):
-            tab2=[dataset[i][0],tab[k],getDistance(dataset[i][0],tab[k],dataset)]
-            listconnection.append(tab2)             
-    return listconnection
-
-
-#Split the string using as separator ";"
-def FindTheConnection(string):
-    tab=string.split(';')
-    return tab
-
-
-#Create Matrix of connection using the dataset
-def CreateMatrix(dataset):
-    matrix=np.zeros((90,90))
-    listconnection=DefineConnection(dataset)
-    a=len(listconnection)
-    for tab in range (0,len(listconnection)):
-        matrix[int(listconnection[tab][0])-1][int(listconnection[tab][1])-1] = float(listconnection[tab][2])
-    return matrix
 
 
 #Create a plot with the name of the Station
