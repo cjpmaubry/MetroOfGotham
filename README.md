@@ -24,5 +24,5 @@ We put by **hand** the information in a [csv file](Station.csv) in order to stor
 The display of the graphs and solution can be seen in [this file MetroGRaph.py](MetroGraph.py)
 
 #### 1-2-Which kind of algorithm create a connected graph while minimizing the total amount of distance? Show the algorithm? What is its complexity?
-The algorith we are going to use is **Prim's Minimum Spanning Tree**. We implemented it in [this file CHANGE URL](MetroGraph.py).
-It has a complexity of **O = EV log(V)** (E = edges and V = vertices).
+The algorith we are going to use is **Krustal's Minimum Spanning Tree**.
+It has a complexity of **O(ElogV)** (E = edges and V = vertices).
