@@ -67,7 +67,8 @@ def DefineConnection(dataset):
         tab=FindTheConnection(dataset[i][4])
         for k in range(0,len(tab)):
             tab2=[dataset[i][0],tab[k],getDistance(dataset[i][0],tab[k],dataset)]
-            listconnection.append(tab2)             
+            listconnection.append(tab2)  
+    a=len(listconnection)           
     return listconnection
 
 
@@ -100,15 +101,13 @@ def DisplayNameStation(dataset):
     plt.axis('off') # Hide the axes
     plt.title("List of station with their ID") # Write title
     
-    
-
-
 # ----------------------------------------------------------------- MAIN ------------------------------------------------------
 
 
 def main():
     dataset=GiveDataSet()
     DrawGraphs(dataset)
+
 
 if __name__ == "__main__":
     main()
