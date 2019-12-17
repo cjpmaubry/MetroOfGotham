@@ -10,6 +10,15 @@ def GiveDataSet():
         dataset=list(lines)
     return dataset
 
+def GiveDataSet2():
+    #finding the folder and file
+    data_folder = Path("MetroOfGotham/")
+    file_to_open = data_folder / "DatasetPart3NotSort.csv"
+    with open(file_to_open, "r") as csvfile:
+        lines = csv.reader(csvfile)
+        dataset=list(lines)
+    return dataset
+
 
 
 
@@ -64,18 +73,64 @@ def FindIDWithDichotomic(SortedDatabase,ID):
 
 
 #QUESTION 3
+#We decide to use the sort algorithm merge sort, which complexity is nlogn (where n is the number of line in the dataset)
+
+# Implementation of the sort method Merge Sort for the Dataset define in the Project
+def mergeSort(dataset):
+    if len(dataset) > 1:
+        middle = len(dataset) // 2 #Finding the middle of the array
+        left = dataset[:middle] # Dividing the array : fisrt halves
+        right = dataset[middle:] # Dividing the array : second halves
+
+        # Recursive call on each half
+        mergeSort(left)
+        mergeSort(right)
 
 
+        #Define usefull index :
+        
+        i = 0 # iterator for traversing the first halves
+        j = 0 # iterator for traversing the second halves
+        k = 0 # Iterator for the main list
+        
+        # Copy data to temp arrays left[] and right[]
+        while i < len(left) and j < len(right):
+            if left[i][0] < right[j][0]:
+              # The value from the left half has been used
+              dataset[k] = left[i]
+              # Move the iterator forward
+              i += 1
+            else:
+                dataset[k] = right[j]
+                j += 1
+            k += 1
+
+        # For all the remaining values
+        while i < len(left):
+            dataset[k] = left[i]
+            i += 1
+            k += 1
+
+        while j < len(right):
+            dataset[k]=right[j]
+            j += 1
+            k += 1
 
 
-
-
+#QUESTION 4
+#The three are launch in the main
+# A Special database (same as DatasetPart3 but where this ID are not already sort) are use for this question
 
 
 def main():
-    dataset=GiveDataSet()
-    #FindID(dataset,100)
-    FindIDWithDichotomic(dataset,100)
+    dataset=GiveDataSet2() #Database not sorted
+    #QUESTION 1
+    print("Use method of question 1")
+    FindID(dataset,10)
+    print("Use method of question 2 and 3 (sort with 3 and find ID with 2)")
+    mergeSort(dataset)
+    print(dataset)
+    FindIDWithDichotomic(dataset,12)
 
 if __name__ == "__main__":
     main()
