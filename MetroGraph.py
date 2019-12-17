@@ -7,6 +7,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from pathlib import Path
 
+
 # ----------------------------------------------------------------- METHODS ------------------------------------------------------
 
 # ----------------------------- DATASET CONSTRUCTION ----------------------------- #
@@ -50,7 +51,7 @@ def getDistance(indice1,indice2,dataset):
     distance =0
     for x in range(2,4): #  on a 2 dimensions
         distance += pow((float(dataset[int(indice1)][x])-float(dataset[int(indice2)][x])),2)
-    return math.sqrt(distance)
+    return round(math.sqrt(distance)) # Return the round distance ( to have a better look in the figure)
 
 #Returns the id and position of the stations in a dict ( use a dataset to find the info)
 def ExtractionCoordonateOfStation(dataset):
@@ -79,8 +80,10 @@ def  CreateGraphStation(A,positions):
     plt.figure(figsize=(10,10), dpi=80) # Control the windows dimensions
     G = nx.from_numpy_matrix(A)
     pos=nx.spring_layout(G) # Define coordonate of the station
-    nx.draw(G,pos = positions,with_labels=True) #Create the Station on the graph and the edge
-
+    edge_labels=dict([((u,v,),d['weight'])
+                 for u,v,d in G.edges(data=True)])# Define the label of the edges
+    nx.draw_networkx(G,pos = positions,with_labels=True) #Create the Station on the graph and the edge
+    nx.draw_networkx_edge_labels(G,pos= positions,font_size=7,edge_labels=edge_labels) #Added on graph the weight of each edge
 
 
 #Create a plot with the name of the Station
