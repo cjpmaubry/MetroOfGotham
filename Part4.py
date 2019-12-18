@@ -44,16 +44,6 @@ class BinaryTree(object):
         else:
             return 1+size(start.left)+size(start.right)
 
-    def max_Depth(self,start):
-        if(start is None):
-            return 0
-        else:
-            lDepth = tree.max_Depth(start.left)
-            rDepth = tree.max_Depth(start.right)
-        if (lDepth > rDepth):
-            return(lDepth + 1)
-        else:
-            return(rDepth + 1)
 
     def search(self,root,key):
         if root is None or root.value==key:
@@ -137,3 +127,11 @@ def FromAsciiToName(crypted):
         name += chr(letter % pow(offset, number_letters - index))
         index += 1
     return name
+
+
+def main():
+    dataset=GiveDataSetMembers()
+    CreateTree(dataset)
+
+if __name__ == "__main__":
+    main()
