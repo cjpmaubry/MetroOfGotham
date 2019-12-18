@@ -18,19 +18,19 @@ class BinaryTree(object):
 
 #------------DISPLAY METHOD OF BINARY TREE------------#
 
-    def print_preodrer(self,start):
+    def print_preorder(self,start):
         if (start is not None) :
             print(start.value)
             self.print_preodrer(start.left)
             self.print_preodrer(start.right)
 
-    def print_intodrer(self,start):
+    def print_inorder(self,start):
         if (start is not None) :
             self.print_intodrer(start.left)
             print(start.value)
             self.print_intodrer(start.right)
 
-    def print_postodrer(self,start):
+    def print_postorder(self,start):
         if (start is not None) :
             self.print_postodrer(start.left)
             self.print_postodrer(start.right)
@@ -132,7 +132,7 @@ def FromAsciiToName(crypted):
 def main():
     dataset=GiveDataSetMembers()
     tree=CreateTree(dataset)
-    tree.print_preodrer(tree.root)
+    tree.print_inordrer(tree.root)
 
 if __name__ == "__main__":
     main()
