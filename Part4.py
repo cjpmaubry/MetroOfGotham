@@ -60,3 +60,18 @@ class BinaryTree(object):
             return self.search(root.right,key)
         return self.search(root.left,key)
 
+
+    def insert(self,root,node):
+        if root is None:
+            root=node
+        else:
+            if root.value<node.value:
+                if root.right is None:
+                    root.right=node
+                else:
+                    self.insert(root.right,node)
+            else:
+                if root.left is None:
+                    root.left=node
+                else:
+                    self.insert(root.left,node)
