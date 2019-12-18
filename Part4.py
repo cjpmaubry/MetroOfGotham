@@ -85,7 +85,7 @@ class BinaryTree(object):
 
 def CreateTree(dataset):
     tree=BinaryTree(dataset[0])
-    for(k in range(1,len(dataset))):
+    for k in range(1,len(dataset)):
         tree.insert(tree.root,Node(FromNameToAscii(dataset[k])))
 
 
