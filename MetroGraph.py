@@ -70,18 +70,36 @@ def ExtractionCoordonateOfStation(dataset):
 
 # ----------------------------- CREATION AND DISPLAY OF GRAPHS  ---------------------------- #
 #Creates a matix of the vertices and then displays the graph associated
-def DrawGraphs(datasetStation,datasetEdge):
+def ApplyPrim(datasetStation,datasetEdge):
     positions_dict = ExtractionCoordonateOfStation(datasetStation)
     positions = positions_dict
-    A = CreateMatrix(datasetStation,datasetEdge) # Recovery the matrix of connection
+    inital_matrix = CreateMatrix(datasetStation,datasetEdge) # Recovery the matrix of connection
     #Define graphical parametres
-    CreateGraphStation(A,positions,datasetStation,datasetEdge) #Create the figure with station (edges and vertices)
+    CreateGraphStation(inital_matrix,positions,datasetStation,datasetEdge) #Create the figure with station (edges and vertices)
     DisplayNameStation(datasetStation) # Create other figure to display the name of the station
+
+    #Start of Prim's algorithm
+    g = PrimsAlgorithm(90)
+    #SYMETRICAL VERSION OF THE MATRIX for prim to work we to create a symétrical version of the matrix
+    initial_matrix_symetric = inital_matrix + inital_matrix.T - np.diag(inital_matrix.diagonal())
+    #the program needs an array and not a numpy matrix to work
+    g.graph = np.squeeze(np.asarray(initial_matrix_symetric))
+
+    #returned matrix associated with the solution
+    result_matrix = g.primMST()
+    
+    #METTRE AFFICHAGE ICI, POUR LINSTANT CEST CA :
+    plt.figure(figsize=(10,10), dpi=80)
+    G_result = nx.from_numpy_matrix(result_matrix)
+    #uses the SAME POSITIONS as INITIAL MATRIX
+    nx.draw(G_result,pos = positions, with_labels=True)
+    nx.draw_networkx_edge_labels(G_result,pos = positions)
+
     plt.show() # Display the Graphs 
 
 
 #Create the figure with station (edges and vertices)
-def  CreateGraphStation(A,positions,datasetStation,datasetEdge):  
+def CreateGraphStation(A,positions,datasetStation,datasetEdge):  
     plt.figure(figsize=(10,10), dpi=80) # Control the windows dimensions
     G = nx.from_numpy_matrix(A)
     pos=nx.spring_layout(G) # Define coordonate of the station    
@@ -117,8 +135,6 @@ def GiveLine(color,datasetStation,datasetEdge):
             matrix[int(listconnection[tab][0])-1][int(listconnection[tab][1])-1] = float(listconnection[tab][2])
     return matrix
 
-
-
 #Create a plot with the name of the Station
 def DisplayNameStation(dataset):
     plt.figure(figsize=(5,9), dpi=90)# Control the windows dimensions
@@ -132,8 +148,65 @@ def DisplayNameStation(dataset):
     plt.axis('off') # Hide the axes
     plt.title("List of station with their ID") # Write title
 
-# ----------------------------------------------------------------- PRIM'S ALGORITHM ------------------------------------------------------
 
+# ----------------------------------------------------------------- PRIM'S ALGORITHM ------------------------------------------------------
+#Prim's Minimum Spanning Tree algorithm
+class PrimsAlgorithm():
+
+    def __init__(self, vertices):
+        self.V = vertices
+        self.graph = [[0 for column in range(vertices)] 
+                      for row in range(vertices)]
+
+    # Builds and returns the matrix associated with the constructed MST stored in "parent"
+    def matrixMST(self, parent):
+        results=np.zeros((90,90))
+        print ("Edge \tWeight")
+        for i in range(1,self.V):
+            #Also prints solution in console
+            print (parent[i],"-",i,"\t",self.graph[i][ parent[i] ])
+            results[i][parent[i]] = self.graph[i][parent[i]]
+        return results
+
+    # Finds the vertex with minimum distance value    
+    # Searches for it in the set of vertices not yet included in shortest path tree
+    def minKey(self, key, mstSet):
+        #Initilaizes min value with a big number
+        min = 1000000
+        for v in range(self.V):
+            if key[v] < min and mstSet[v] == False:
+                min = key[v]
+                min_index = v
+        return min_index
+
+    # Function to construct and print MST for a graph 
+    # uses adjacency matrix representation
+    def primMST(self):
+        #Key values used to pick minimum weight edge in cut
+        key = [1000000] * self.V
+        parent = [None] * self.V # Stored constructed MST goes here
+        key[0] = 0   #  0 is picked as first vertex
+        mstSet = [False] * self.V
+        parent[0] = -1  # First node is always the root
+
+        for cout in range(self.V):
+            # Picks the minimum distance vertex from the set of vertices not yet processed
+            u = self.minKey(key, mstSet)
+
+            # Puts the minimum in the shortest path tree
+            mstSet[u] = True
+
+            # Updates dist value of the adjacent vertices of the picked vertex
+            # only if the current distance is greater than new distance and
+            # the vertex in not in the shotest path tree
+            for v in range(self.V):
+                # graph[u][v] is non zero only for adjacent vertices of m
+                # mstSet[v] is false for vertices not yet included in MST
+                # Updates the key only if graph[u][v] is smaller than key[v]
+                if self.graph[u][v] > 0 and mstSet[v] == False and key[v] > self.graph[u][v]:
+                        key[v] = self.graph[u][v]
+                        parent[v] = u
+        return self.matrixMST(parent)
 
 
 
@@ -144,7 +217,9 @@ def DisplayNameStation(dataset):
 def main():
     datasetStation=GiveDataSetStation()
     datasetEdge=GiveDataSetEdge()
-    DrawGraphs(datasetStation,datasetEdge)
+
+    #Shows teh graph of the ciry and then the graph of the solution found by Prim
+    ApplyPrim(datasetStation,datasetEdge)
 
 
 if __name__ == "__main__":
