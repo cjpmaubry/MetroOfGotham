@@ -77,7 +77,7 @@ def CreateTree(dataset):
     tree=BinaryTree(FromNameToAscii(dataset[0][0]))
     for k in range(1,len(dataset)):
         tree.insert(tree.root,Node(FromNameToAscii(dataset[k][0])))
-
+    return tree
 
 
 def GiveDataSetMembers():
@@ -131,7 +131,8 @@ def FromAsciiToName(crypted):
 
 def main():
     dataset=GiveDataSetMembers()
-    CreateTree(dataset)
+    tree=CreateTree(dataset)
+    tree.print_preodrer(tree.root)
 
 if __name__ == "__main__":
     main()
