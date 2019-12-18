@@ -21,8 +21,10 @@ def FromAsciiToName(crypted):
         number_letters = int((len(str(crypted)) + 1) / 3)
 
     for index in range(number_letters):
-        print()
-        #LOOOOOOOOOOOOOOL
+        temp = int(crypted / pow(offset, number_letters - index - 1))
+        crypted = crypted - (temp * pow(offset, number_letters - index - 1))
+        name += chr(temp % pow(offset, number_letters - index))
+        index += 1
     return name
 
 test = FromNameToAscii("leopold")
