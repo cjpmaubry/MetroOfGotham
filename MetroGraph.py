@@ -81,11 +81,7 @@ def DrawGraphs(datasetStation,datasetEdge):
 
 
 #Create the figure with station (edges and vertices)
-<<<<<<< HEAD
-def CreateGraphStation(A,positions):  
-=======
 def  CreateGraphStation(A,positions,datasetStation,datasetEdge):  
->>>>>>> 7bf11e02ed6ea0ada2aa76592f7340186c5c1af2
     plt.figure(figsize=(10,10), dpi=80) # Control the windows dimensions
     G = nx.from_numpy_matrix(A)
     pos=nx.spring_layout(G) # Define coordonate of the station    
