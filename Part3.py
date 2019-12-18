@@ -95,7 +95,7 @@ def mergeSort(dataset):
         
         # Copy data to temp arrays left[] and right[]
         while i < len(left) and j < len(right):
-            if left[i][0] < right[j][0]:
+            if int(left[i][0]) < int(right[j][0]):
               # The value from the left half has been used
               dataset[k] = left[i]
               # Move the iterator forward
