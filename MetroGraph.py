@@ -76,7 +76,7 @@ def DrawGraphs(dataset):
 
 
 #Create the figure with station (edges and vertices)
-def  CreateGraphStation(A,positions):  
+def CreateGraphStation(A,positions):  
     plt.figure(figsize=(10,10), dpi=80) # Control the windows dimensions
     G = nx.from_numpy_matrix(A)
     pos=nx.spring_layout(G) # Define coordonate of the station
@@ -98,6 +98,12 @@ def DisplayNameStation(dataset):
         plt.text(8, 90-k, name,fontsize=6)
     plt.axis('off') # Hide the axes
     plt.title("List of station with their ID") # Write title
+
+# ----------------------------------------------------------------- PRIM'S ALGORITHM ------------------------------------------------------
+
+
+
+
     
 # ----------------------------------------------------------------- MAIN ------------------------------------------------------
 
