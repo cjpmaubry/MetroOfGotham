@@ -21,19 +21,19 @@ class BinaryTree(object):
     def print_preorder(self,start):
         if (start is not None) :
             print(start.value)
-            self.print_preodrer(start.left)
-            self.print_preodrer(start.right)
+            self.print_preorder(start.left)
+            self.print_preorder(start.right)
 
     def print_inorder(self,start):
         if (start is not None) :
-            self.print_intodrer(start.left)
+            self.print_inorder(start.left)
             print(start.value)
-            self.print_intodrer(start.right)
+            self.print_inorder(start.right)
 
     def print_postorder(self,start):
         if (start is not None) :
-            self.print_postodrer(start.left)
-            self.print_postodrer(start.right)
+            self.print_postorder(start.left)
+            self.print_postorder(start.right)
             print(start.value)
 
 #------------UTILITARY METHOD OF BINARY TREE------------#
@@ -45,7 +45,8 @@ class BinaryTree(object):
             return 1+size(start.left)+size(start.right)
 
 
-    def search(self,root,key):
+    def search(self,root,name):
+        key=FromNameToAscii(name)
         if root is None or root.value==key:
             return root
         if root.value<key:
@@ -132,7 +133,8 @@ def FromAsciiToName(crypted):
 def main():
     dataset=GiveDataSetMembers()
     tree=CreateTree(dataset)
-    tree.print_inordrer(tree.root)
+    tree.print_inorder(tree.root)
+    tree.search(tree.root,'Daniel_JACKSON')
 
 if __name__ == "__main__":
     main()
