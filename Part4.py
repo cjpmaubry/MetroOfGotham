@@ -1,6 +1,8 @@
 
+import csv
+from pathlib import Path
 
-#------------------------------------------------------------BINARY TREE#------------------------------------------------------------#
+
 #---------------STRUCTURE OF BINARY TREE--------------#
 
 class Node(object):
@@ -76,8 +78,31 @@ class BinaryTree(object):
                 else:
                     self.insert(root.left,node)
 
+                        
+
 
 #------------------------------------------------------------DATASET------------------------------------------------------------#
+
+def CreateTree(dataset):
+    tree=BinaryTree(dataset[0])
+    for(k in range(1,len(dataset))):
+        tree.insert(tree.root,Node(FromNameToAscii(dataset[k])))
+
+
+
+def GiveDataSetMembers():
+    #finding the folder and file
+    data_folder = Path("MetroOfGotham/")
+    file_to_open = data_folder / "Members.csv"
+    with open(file_to_open, "r") as csvfile:
+        lines = csv.reader(csvfile)
+        dataset=list(lines)
+    return dataset
+
+
+
+
+
 
 #---------------Crypting and uncryting of the names---------------#
 #Returns the ascii value of the string "name"
