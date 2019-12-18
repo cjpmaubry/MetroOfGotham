@@ -88,13 +88,16 @@ def ApplyPrim(datasetStation,datasetEdge):
     #returned matrix associated with the solution
     result_matrix = g.primMST()
     
-    #METTRE AFFICHAGE ICI, POUR LINSTANT CEST CA :
+    #Prim graph creation :
     plt.figure(figsize=(10,10), dpi=80)
+    plt.title("Prim Graph")
     G_result = nx.from_numpy_matrix(result_matrix)
     #uses the SAME POSITIONS as INITIAL MATRIX
+    edge_labels=dict([((u,v,),d['weight'])
+                 for u,v,d in G_result.edges(data=True)])
     nx.draw(G_result,pos = positions, with_labels=True)
-    nx.draw_networkx_edge_labels(G_result,pos = positions)
-
+    nx.draw_networkx_edge_labels(G_result,pos = positions,font_size=8,edge_labels=edge_labels)
+    
     plt.show() # Display the Graphs 
 
 
@@ -107,7 +110,7 @@ def CreateGraphStation(A,positions,datasetStation,datasetEdge):
     edge_labels=dict([((u,v,),d['weight'])
                  for u,v,d in G.edges(data=True)])# Define the label of the edges
     nx.draw_networkx_edge_labels(G,pos= positions,font_size=8,edge_labels=edge_labels) #Added on graph the weight of each edge
-    
+    plt.title("Station Plan (Graph)")
     # Added color of the line in the graph
     R= nx.from_numpy_matrix(GiveLine('r',datasetStation,datasetEdge))
     nx.draw_networkx_edges(R,pos= positions,font_size=7,edge_color='r',width=4)
