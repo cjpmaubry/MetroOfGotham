@@ -129,7 +129,6 @@ def main():
     FindID(dataset,10)
     print("Use method of question 2 and 3 (sort with 3 and find ID with 2)")
     mergeSort(dataset)
-    print(dataset)
     FindIDWithDichotomic(dataset,12)
 
 if __name__ == "__main__":
