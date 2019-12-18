@@ -45,8 +45,7 @@ class BinaryTree(object):
             return 1+size(start.left)+size(start.right)
 
 
-    def search(self,root,name):
-        key=FromNameToAscii(name)
+    def search(self,root,key):
         if root is None or root.value==key:
             return root
         if root.value<key:
@@ -130,11 +129,19 @@ def FromAsciiToName(crypted):
     return name
 
 
+def SearchName(tree,name):
+    key=FromNameToAscii(name)
+    node=tree.search(tree.root,key)
+    print(node.value)
+    print(FromAsciiToName(node.value))
+
+
 def main():
     dataset=GiveDataSetMembers()
     tree=CreateTree(dataset)
-    tree.print_inorder(tree.root)
-    tree.search(tree.root,'Daniel_JACKSON')
+    #tree.print_inorder(tree.root)
+    SearchName(tree,'Daniel_JACKSON')
+    
 
 if __name__ == "__main__":
     main()
