@@ -132,8 +132,12 @@ def FromAsciiToName(crypted):
 def SearchName(tree,name):
     key=FromNameToAscii(name)
     node=tree.search(tree.root,key)
-    print(node.value)
-    print(FromAsciiToName(node.value))
+    if(node is None):
+        print("This name isn't in the database")
+    else:
+        print("This name is in the database")
+        print(node.value)
+        print(FromAsciiToName(node.value))
 
 
 def main():
