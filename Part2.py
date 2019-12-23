@@ -95,7 +95,7 @@ def GiveDistance(matrix,index):
     for k in range(0,len(matrix[0])):
         if matrix[k][index] !=0:
             value= matrix[k][index] 
-    return value
+    return round(value,2)
 
 
 
