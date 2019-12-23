@@ -68,6 +68,103 @@ class BinaryTree(object):
                 else:
                     self.insert(root.left,node)
 
+#--AVL--#
+
+    def height(self,root):
+        if root is None:
+            return 0
+        return max(self.height(root.left),self.height(root.right))+1
+
+
+    def isBalanced(self,root):
+        if root is None:
+            return True
+        lh=self.height(root.left)
+        rh=self.height(root.right)
+        if(abs(lh-rh)<=1)and self.isBalanced(root.right) is True and self.isBalanced(root.left) is True:
+            return True
+        return False
+
+
+    def insert_AVL(self,root,key):
+
+        if not root:
+            return TreeNode(key)
+        elif key < root.value:
+            root.left=self.insert_AVL(root.left,key)
+        else:
+            root.right=self.insert_AVL(root.right,key)
+        # Update the height of the ancestor node
+        root.height=1+max(self.getHeight(root.left),self.getHeight(root.right))
+        # Get the balance factor
+        balance=self.getBalance(root)
+
+        # If the node is unbalanced, then try out 4 cases
+        #Case 1 - Left Left
+        if balance >1 and key <root.left.value:
+            return self.rightRotate(root)
+        #Case 2 - Right Right
+        if balance <-1 and key >root.right.value:
+            return self.leftRotate(root)
+        #Case 3 - Left Right
+        if balance >1 and key>root.left.value:
+            root.left=self.leftRotate(root.left)
+            return self.rightRotate(root)
+        #Case 4 - Right Left
+        if balance <-1 and key<root.right.value:
+            root.right=self.rightRotate(root.right)
+            return self.leftRotate(root)
+
+        return root
+
+
+
+    def getBalance(self,root):
+        if not root:
+            return 0
+        return self.getHeight(root.left) - self.getHeight(root.right)
+
+
+    def getHeight(self,root):
+        if not root:
+            return 0
+        return root.height
+
+
+    def LeftRotate(self,z):
+
+        y=z.right
+        T2=y.left
+
+        #Perform rotation
+        y.left=z
+        z.right=T2
+
+        #update heights
+        z.height=1+max(self.getHeight(z.left),self.getHeight(z.right))
+        y.height=1+max(self.getHeight(y.left),self.getHeight(y.right))
+
+       #return the new root
+        return y
+
+
+
+    def RightRotate(self,z):
+
+        y=z.left
+        T2=y.right
+
+        #Perform rotation
+        y.right=z
+        z.left=T2
+
+        #update heights
+        z.height=1+max(self.getHeight(z.left),self.getHeight(z.right))
+        y.height=1+max(self.getHeight(y.left),self.getHeight(y.right))
+
+        #return the new root
+        return y
+
                         
 
 
@@ -78,6 +175,7 @@ def CreateTree(dataset):
     for k in range(1,len(dataset)):
         tree.insert(tree.root,Node(FromNameToAscii(dataset[k][0])))
     return tree
+
 
 
 def GiveDataSetMembers():
@@ -142,102 +240,12 @@ def SearchName(tree,name):
 
 #----------------------------------QUESTION--AVL--------------------------------------#
 
-    def height(self,root):
-        if root is None:
-            return 0
-        return max(self.height(root.left),self.height(root.right))+1
-
-
-    def isBalanced(self,root):
-        if root is None:
-            return True
-        lh=self.height(root.left)
-        rh=self.height(root.right)
-        if(abs(lh-rh)<=1)and self.isBalanced(root.right) is True and self.isBalanced(root.left) is True:
-            return True
-        return False
-
-
-    def insert_AVL(self,root,key):
-
-        if not root:
-            return TreeNode(key)
-        elif key < root.val:
-            root.left=self.insert_AVL(root.left,key)
-        else:
-            root.right=self.insert_AVL(root.right,key)
-        # Update the height of the ancestor node
-        root.height=1+max(self.getHeight(root.left),self.getHeight(root.right))
-        # Get the balance factor
-        balance=self.getBalance(root)
-
-        # If the node is unbalanced, then try out 4 cases
-        #Case 1 - Left Left
-        if balance >1 and key <root.left.val:
-            return self.rightRotate(root)
-        #Case 2 - Right Right
-        if balance <-1 and key >root.right.val:
-            return self.leftRotate(root)
-        #Case 3 - Left Right
-        if balance >1 and key>root.left.val:
-            root.left=self.leftRotate(root.left)
-            return self.rightRotate(root)
-        #Case 4 - Right Left
-        if balance <-1 and key<root.right.val:
-            root.right=self.rightRotate(root.right)
-            return self.leftRotate(root)
-
-        return root
-
-
-
-    def getBalance(self,root):
-        if not root:
-            return 0
-        return self.getHeight(root.left) - self.getHeight(root.right)
-
-
-    def getHeight(self,root):
-        if not root:
-            return 0
-        return root.height
-
-
-    def LeftRotate(self,z):
-
-        y=z.right
-        T2=y.left
-
-        #Perform rotation
-        y.left=z
-        z.right=T2
-
-        #update heights
-        z.height=1+max(self.getHeight(z.left),self.getHeight(z.right))
-        y.height=1+max(self.getHeight(y.left),self.getHeight(y.right))
-
-        #return the new root
-        return y
-
-
-
-    def RightRotate(self,z):
-
-        y=z.left
-        T2=y.right
-
-        #Perform rotation
-        y.right=z
-        z.left=T2
-
-        #update heights
-        z.height=1+max(self.getHeight(z.left),self.getHeight(z.right))
-        y.height=1+max(self.getHeight(y.left),self.getHeight(y.right))
-
-        #return the new root
-        return y
-
-
+    
+def CreateAVL(dataset):
+    tree=BinaryTree(FromNameToAscii(dataset[0][0]))
+    for k in range(1,len(dataset)):
+        tree.insert_AVL(tree.root,Node(FromNameToAscii(dataset[k][0])))
+    return tree
 
 
 
@@ -245,10 +253,13 @@ def SearchName(tree,name):
 #-----------------------------------------MAIN-----------------------------------------#
 
 def main():
+    #Question 1
     dataset=GiveDataSetMembers()
     tree=CreateTree(dataset)
     #tree.print_inorder(tree.root)
     SearchName(tree,'Daniel_JACKSON')
+    #Question 2
+    AVL=CreateAVL(dataset)
     
 
 if __name__ == "__main__":
