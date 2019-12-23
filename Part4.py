@@ -102,18 +102,18 @@ class BinaryTree(object):
         # If the node is unbalanced, then try out 4 cases
         #Case 1 - Left Left
         if balance >1 and key <root.left.value:
-            return self.rightRotate(root)
+            return self.RightRotate(root)
         #Case 2 - Right Right
         if balance <-1 and key >root.right.value:
-            return self.leftRotate(root)
+            return self.LeftRotate(root)
         #Case 3 - Left Right
         if balance >1 and key>root.left.value:
-            root.left=self.leftRotate(root.left)
-            return self.rightRotate(root)
+            root.left=self.LeftRotate(root.left)
+            return self.RightRotate(root)
         #Case 4 - Right Left
         if balance <-1 and key<root.right.value:
-            root.right=self.rightRotate(root.right)
-            return self.leftRotate(root)
+            root.right=self.RightRotate(root.right)
+            return self.LeftRotate(root)
 
         return root
 
