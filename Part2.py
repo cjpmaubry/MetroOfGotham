@@ -15,11 +15,6 @@ class Graph():
   
 
 #------------------UTILITARY FONCTION-------------------#
-
-    def PrintSolution(self, dist): 
-        print ("Vertex \tDistance from Source (vertex 1)")
-        for node in range(self.V): 
-            print (node+1, "\t", dist[node] )
   
 
     # This method finds the vertex with minimum distance value, from the set of vertices not yet included in shortest path tree 
@@ -62,9 +57,7 @@ class Graph():
                         for k in range(0,9):
                             matrix[k][v]=0
                         matrix[u][v]=distance[v]
-    
-                        
-  
+     
         plt.figure(figsize=(8,8), dpi=80)
         plt.title("Dijktra Graph")
         G_result = nx.from_numpy_matrix(matrix)
