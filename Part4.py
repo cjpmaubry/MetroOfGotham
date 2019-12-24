@@ -10,6 +10,7 @@ class Node(object):
         self.value = value
         self.left = None
         self.right= None
+        
 
 class BinaryTree(object):
     def __init__(self,root):
@@ -89,8 +90,8 @@ class BinaryTree(object):
     def insert_AVL(self,root,key):
 
         if not root:
-            return TreeNode(key)
-        elif key < root.value:
+            return key
+        elif key.value < root.value:
             root.left=self.insert_AVL(root.left,key)
         else:
             root.right=self.insert_AVL(root.right,key)
@@ -101,17 +102,17 @@ class BinaryTree(object):
 
         # If the node is unbalanced, then try out 4 cases
         #Case 1 - Left Left
-        if balance >1 and key <root.left.value:
+        if balance >1 and key.value <root.left.value:
             return self.RightRotate(root)
         #Case 2 - Right Right
-        if balance <-1 and key >root.right.value:
+        if balance <-1 and key.value >root.right.value:
             return self.LeftRotate(root)
         #Case 3 - Left Right
-        if balance >1 and key>root.left.value:
+        if balance >1 and key.value >root.left.value:
             root.left=self.LeftRotate(root.left)
             return self.RightRotate(root)
         #Case 4 - Right Left
-        if balance <-1 and key<root.right.value:
+        if balance <-1 and key.value <root.right.value:
             root.right=self.RightRotate(root.right)
             return self.LeftRotate(root)
 
@@ -128,7 +129,7 @@ class BinaryTree(object):
     def getHeight(self,root):
         if not root:
             return 0
-        return root.height
+        return self.height(root)
 
 
     def LeftRotate(self,z):
@@ -164,6 +165,7 @@ class BinaryTree(object):
 
         #return the new root
         return y
+
 
                         
 
@@ -242,10 +244,10 @@ def SearchName(tree,name):
 
     
 def CreateAVL(dataset):
-    tree=BinaryTree(FromNameToAscii(dataset[0][0]))
+    AVL=BinaryTree(FromNameToAscii(dataset[0][0]))
     for k in range(1,len(dataset)):
-        tree.insert_AVL(tree.root,Node(FromNameToAscii(dataset[k][0])))
-    return tree
+        AVL.root = AVL.insert_AVL(AVL.root,Node(FromNameToAscii(dataset[k][0])))
+    return AVL
 
 
 
@@ -256,10 +258,19 @@ def main():
     #Question 1
     dataset=GiveDataSetMembers()
     tree=CreateTree(dataset)
-    #tree.print_inorder(tree.root)
+    tree.print_inorder(tree.root)
+    print("That was Binary Tree In Order \n")
+    print("We search for Daniel_JACKSON in our tree :")
     SearchName(tree,'Daniel_JACKSON')
+    print("press enter to see AVL version")
+    input()
     #Question 2
     AVL=CreateAVL(dataset)
+    AVL.print_inorder(AVL.root)
+    print("That was AVL Tree In Order \n")
+    print("We search for Daniel_JACKSON in our tree :")
+    SearchName(tree,'Daniel_JACKSON')
+    input()
     
 
 if __name__ == "__main__":
