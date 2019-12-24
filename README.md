@@ -18,10 +18,15 @@ Contributors :
 # Part 1 
 ## Library uses :
 --> pip install csv
+
 --> pip install math
+
 --> pip install numpy
+
 --> pip install networkx
+
 --> pip install matplotlib
+
 --> pip install pathlib
 
 
@@ -41,7 +46,9 @@ It has a complexity of **O(|V|^2)** ( V = vertices).
 
 ## Library uses :
 --> pip install numpy
+
 --> pip install networkx
+
 --> pip install matplotlib
 
 
@@ -62,6 +69,7 @@ Note : We can see in the matrix given in the topic that go to city G4 directly f
 # Part 3
 ## Library uses :
 --> pip install csv
+
 --> pip install pathlib
 
 ### 3-1 Suggest and show a greedy method to findan ID in a (linear) database. What is its complexity ?
@@ -90,4 +98,5 @@ All the ID number could be change in the main.
 # Part 4
 ## Library uses :
 --> pip install csv
+
 --> pip install pathlib
