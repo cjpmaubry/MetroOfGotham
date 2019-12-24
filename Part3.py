@@ -124,7 +124,6 @@ def mergeSort(dataset):
 
 def main():
     dataset=GiveDataSet2() #Database not sorted
-    #QUESTION 1
     print("Use method of question 1")
     FindID(dataset,10)
     print("Use method of question 2 and 3 (sort with 3 and find ID with 2)")
