@@ -72,13 +72,13 @@ Note : We can see in the matrix given in the topic that go to city G4 directly f
 
 --> pip install pathlib
 
-### 3-1 Suggest and show a greedy method to findan ID in a (linear) database. What is its complexity ?
+### 3-1 Suggest and show a greedy method to find an ID in a (linear) database. What is its complexity ?
 We used an algorithm that scans the entire dataset to find the ID (it stops as soon as it finds it).
 It has a complexity of **O(n)**
 The database is call DatasetPart3.csv (ID,Name,IDofconfirmed). It store the ID and the name of the member and the Id of the member that certified this member.
 Note : In this dataset the Id is already sort (Automaticaly sorted when we have created the CSV file), but methode FindID also work for unsorted CSV.
 
-### 3-2 Suggest and showa divide and conquer method to find an ID in a (linear) database. What is its complexity ?
+### 3-2 Suggest and show a divide and conquer method to find an ID in a (linear) database. What is its complexity ?
 Because for the moment we use a sorted database we decided to use the method of a dichotomic search algorithm.
 It has a complexity of **O(log(n))**
 Note : Both research algorithm research the ID of a member in the dataset. If it is, the algorithm display in the console a message that the ID is in the Dataset and the name of the member and also the name of the member that certified him.
