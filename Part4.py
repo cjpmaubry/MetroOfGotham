@@ -69,7 +69,7 @@ class BinaryTree(object):
                 else:
                     self.insert(root.left,node)
 
-#--AVL--#
+#---------------------------AVL---------------------------#
 
     def height(self,root):
         if root is None:
@@ -166,6 +166,43 @@ class BinaryTree(object):
         #return the new root
         return y
 
+#---------------------------Btree---------------------------#
+
+def insert_Btree(self,root,key):
+
+        if not root:
+            return key
+        elif key.value < root.value:
+            root.left=self.insert_AVL(root.left,key)
+        else:
+            root.right=self.insert_AVL(root.right,key)
+        # Update the height of the ancestor node
+        root.height=1+max(self.getHeight(root.left),self.getHeight(root.right))
+        # Get the balance factor
+        balance=self.getBalance(root)
+
+        # If the node is unbalanced, then try out 4 cases
+        #Case 1 - Left Left
+        if balance >1 and key.value <root.left.value:
+            return self.RightRotate(root)
+        #Case 2 - Right Right
+        if balance <-1 and key.value >root.right.value:
+            return self.LeftRotate(root)
+        #Case 3 - Left Right
+        if balance >1 and key.value >root.left.value:
+            root.left=self.LeftRotate(root.left)
+            return self.RightRotate(root)
+        #Case 4 - Right Left
+        if balance <-1 and key.value <root.right.value:
+            root.right=self.RightRotate(root.right)
+            return self.LeftRotate(root)
+
+        return root
+
+
+
+
+
 
                         
 
@@ -195,6 +232,7 @@ def GiveDataSetMembers():
 
 
 #---------------Crypting and uncryting of the names---------------#
+
 #Returns the ascii value of the string "name"
 def FromNameToAscii(name):
     crypted_name = 0
@@ -250,6 +288,14 @@ def CreateAVL(dataset):
     return AVL
 
 
+#----------------------------------QUESTION--B-tree-------------------------------------#
+
+    
+def CreateBtree(dataset):
+    Btree=BinaryTree(FromNameToAscii(dataset[0][0]))
+    for k in range(1,len(dataset)):
+        Btree.root = Btree.insert_Btree(Btree.root,Node(FromNameToAscii(dataset[k][0])))
+    return Btree
 
 
 #-----------------------------------------MAIN-----------------------------------------#
@@ -268,10 +314,16 @@ def main():
     AVL=CreateAVL(dataset)
     AVL.print_inorder(AVL.root)
     print("That was AVL Tree In Order \n")
-    print("We search for Daniel_JACKSON in our tree :")
-    SearchName(tree,'Daniel_JACKSON')
+    print("We search for Daniel_JACKSON in our AVL tree :")
+    SearchName(AVL,'Daniel_JACKSON')
+    print("press enter to see B-tree version")
     input()
-    
+    #Question 3
+    Btree=CreateBtree(dataset)
+    #Btree.print_inorder(AVL.root)
+    print("That was B-tree Tree In Order \n")
+    print("We search for Daniel_JACKSON in our B-tree :")
+    #SearchName(Btree,'Daniel_JACKSON')
 
 if __name__ == "__main__":
     main()
