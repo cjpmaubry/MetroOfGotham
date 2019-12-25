@@ -121,7 +121,7 @@ def mergeSort(dataset):
 
 #QUESTION 4
 #The three are launch in the main
-# A Special database (same as DatasetPart3 but where this ID are not already sort) are use for this question
+# A Special database (same as DatasetPart3 but where this ID are not already sorted) are used for this question
 
 
 def main():
