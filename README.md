@@ -19,7 +19,7 @@ Contributors :
 ### IDE and Python version
 We used Visual Studio Code in this project Version: 1.41.1 (user setup).
 Python version 3.8 was used in this program.
-We recommend using the same but you can do it from any IDE supporting at least python 3. 
+We recommend using the same but you can do it from any IDE supporting at least python 3.8. 
 Be sure if using Visual Studio Code that you have the Python Extention installed ! 
 
 ### Pyhton libraries that have to be installed
@@ -35,7 +35,7 @@ These are all the libraries needed to run the 4 Parts of the project.
 ```
 
 ### Download and launch
-**If using VS Code** : you can simply clone the projet by doing to flowwing : 
+**If using VS Code** : you can simply clone the projet by doing to following : 
 
 Open Visual Studio Code Go to Top Menu -> Files -> Open Folder Select the folder you would like to download the cloned project
 
@@ -43,16 +43,16 @@ Go to Top Menu -> View -> Integrated Terminal or Terminal
 
 Execute 'git clone' command with the path to the git repository : https://github.com/Leoduv/MetroOfGotham.git
 
-git clone https://github.com/Leoduv/MetroOfGotham.git
+like follows : "git clone https://github.com/Leoduv/MetroOfGotham.git"
 
 If it requires credentials to login then the integrated terminal will ask for username and password.
 
-And here you go the cloned files are already available into the local folder. The you just have to run Part 1, PArt 2 ect to see the different parts of the project.
+And here you go the cloned files are already available into the local folder. The you just have to run Part 1, Part 2 ect... to see the different parts of the project.
 
 **If using another IDE** : go on https://github.com/Leoduv/MetroOfGotham and download the zip file.
 
-Create a new reposiroty on your computer and extract the zip into it. You Should have a folder MetroOfGohtam-master where you will see the 4 python files you can execute. Do NOT move the python files from the folder otherwize they won't be able to find the toher files they need.
-Just right-click on the python files and open and execute with the desired IDE. 
+Create a new repository on your computer and extract the zip into it. You should have a folder MetroOfGohtam-master where you will see the 4 python files you can execute. Do NOT move the python files from the folder otherwize they won't be able to find the other files they need.
+Just right-click on the python files and open and execute them with the desired IDE. 
 
 
 In both cases make sure that you have the previous python libraries installed.
@@ -79,10 +79,10 @@ The display of the graphs and solution can be seen in [this file MetroGRaph.py](
 He used the networkx and matplotlib.pyplot libraries in order to create the networks and display them.
 
 ### 1-1 Create and display a graph representing the Gotham City’s railways and subways below
-Run the file "Part1-MetroGraph". Figure 1 shows the grpah representing the metro with all the lines and stations. In figure 2 the names of the stations are displayed with their corresponding number.
+Run the file "Part1-MetroGraph". Figure 1 shows the graph representing the metro with all the lines and stations. In figure 2 the names of the stations are displayed with their corresponding number.
 
 ### 1-2 Which kind of algorithm create a connected graph while minimizing the total amount of distance? Show the algorithm? What is its complexity?
-The kind of algorithm used is the "Minimum Spanning Tree".The algorith that we are going to use is **Prim's Minimum Spanning Tree**.
+The kind of algorithm used is the "Minimum Spanning Tree". The algorith that we are going to use is **Prim's Minimum Spanning Tree**.
 It has a complexity of **O(|V|^2)** ( V = vertices).
 
 ### 1-3 Show and display a solution of the connected network.
@@ -101,10 +101,10 @@ When running "Part1-MetroGraph", figure 3 will display the graph of the solution
 
 ### 2-1 Which kind of algorithm create a connected graph while minimizing the distance to a unique city ? What is its complexit?
 The algorith we are going to use is **Dijkstra's algorithm ( Dijkstra's Shortest Path First algorithm)**.
-It has a complexity of **O((|E|+|V|)*log(|V|))** ( V = vertices and E = edges).
+It has a complexity of **O((|E|+|V|)log(|V|))** ( V = vertices and E = edges).
 
 ### 2-1 Show and display a solution of the proposed algorithm.
-We had to use the matrice given by the subject to run dijktra's algorithm. 
+We had to use the matrix given by the subject to run dijktra's algorithm. 
 Dijktra's algorithm uses 2 methods : one is used to return the minimum distance between some edges; and the other creates a figure displaying the minmum distance between Gotham and the other towns.
 
 Dijktra's algorithm takes a matrix of connections and returns 2 figures. One displays all the distance between Gotham and the another town and the second figure displays the graph of connection (usefull for the next question).
@@ -124,7 +124,7 @@ Note : We can see in the matrix given in the topic that go to city G4 directly f
 --> pip install pathlib
 
 #### Dataset created
-In this part we use a dataset composued of thr ID of a member, the name of that member, and the id of the member that certified him.
+In this part we use a dataset composed of the ID of a member, his name, and the id of the member that certified him.
 
 ### 3-1 Suggest and show a greedy method to find an ID in a (linear) database. What is its complexity ?
 We used an algorithm that scans the entire dataset **element by element** to find the ID (it stops as soon as it finds it).
@@ -158,7 +158,7 @@ All the ID numbers could be changed in the mainif you want to test with other.
 ## Dataset used
 In this final part, the work was focused on tree manipulation. We had to create a dataset of our choice and use it.
 We decided to used a list of the names of members, but **crypted** : the names are written in ASCII.
-The program taked a csv file containing the names of Jocker's members and then saves the names in a list but by applying a methode that takes the name and return the **ASCII version of the name**.
+The program takes a csv file containing the names of Jocker's members and then saves the names in a list but by applying a methode that takes the name and return the **ASCII version of the name**.
 
 This allows us to have a dataset composed of numbers, meaning that we will be able to build trees that need to compare values. our dataset contains 100 names.
 
