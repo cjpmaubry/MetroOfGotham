@@ -37,7 +37,7 @@ These are all the libraries needed to run the 4 Parts of the project.
 ### Download and launch
 **If using VS Code** : you can simply clone the projet by doing to following : 
 
-Open Visual Studio Code Go to Top Menu -> Files -> Open Folder Select the folder you would like to download the cloned project
+Open Visual Studio Code Go to Top Menu -> Files -> Open Folder -> Select the folder you would like to download the cloned project into
 
 Go to Top Menu -> View -> Integrated Terminal or Terminal
 
@@ -45,9 +45,9 @@ Execute 'git clone' command with the path to the git repository : https://github
 
 like follows : "git clone https://github.com/Leoduv/MetroOfGotham.git"
 
-If it requires credentials to login then the integrated terminal will ask for username and password.
+(If it requires credentials to login then the integrated terminal will ask for username and password.)
 
-And here you go the cloned files are already available into the local folder. The you just have to run Part 1, Part 2 ect... to see the different parts of the project.
+And here you go the cloned files are already available into the local folder under the MetroOfGotham folder. Then you just have to run Part 1, Part 2 ect... to see the different parts of the project.
 
 **If using another IDE** : go on https://github.com/Leoduv/MetroOfGotham and download the zip file.
 
