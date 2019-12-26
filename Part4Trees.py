@@ -1,14 +1,14 @@
 
 import csv
-from pathlib import Path
+import sys, os
 
 
 
 #------------------------------------------------------------DATASET------------------------------------------------------------#
 def GiveDataSetMembers():
     #finding the folder and file
-    data_folder = Path("MetroOfGotham/")
-    file_to_open = data_folder / "MembersPart4.csv"
+    file_to_open = os.path.join(sys.path[0], "MembersPart4.csv")
+
     with open(file_to_open, "r") as csvfile:
         lines = csv.reader(csvfile)
         dataset=list(lines)

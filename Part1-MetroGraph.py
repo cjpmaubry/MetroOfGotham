@@ -5,7 +5,7 @@ import math
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
-import os
+import sys, os
 
 
 # ----------------------------------------------------------------- METHODS ------------------------------------------------------
@@ -14,9 +14,9 @@ import os
 #Get the csv file and create a dataset with it
 def GiveDataSetStation():
     #finding the folder and file
-    datafile = "MetroOfGotham/StationPart1.csv"
-    file_to_open = os.path.abspath(datafile)
-    with open(file_to_open, "r") as csvfile:
+    file_to_open = os.path.join(sys.path[0], "StationPart1.csv")
+
+    with open(file_to_open) as csvfile:
         lines = csv.reader(csvfile)
         dataset=list(lines)
     return dataset
@@ -24,8 +24,8 @@ def GiveDataSetStation():
 #Get the csv file and create a dataset with it
 def GiveDataSetEdge():
     #finding the folder and file
-    datafile = "MetroOfGotham/EdgePart1.csv"
-    file_to_open = os.path.abspath(datafile)
+    file_to_open = os.path.join(sys.path[0], "EdgePart1.csv")
+    
     with open(file_to_open, "r") as csvfile:
         lines = csv.reader(csvfile)
         dataset=list(lines)

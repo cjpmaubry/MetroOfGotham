@@ -31,7 +31,8 @@ These are all the libraries needed to run the 4 Parts of the project.
 --> pip install numpy
 --> pip install networkx
 --> pip install matplotlib
---> pip install pathlib
+--> pip install sys
+--> pip install os
 ```
 
 ### Download and launch
@@ -66,7 +67,8 @@ In both cases make sure that you have the previous python libraries installed.
 --> pip install numpy
 --> pip install networkx
 --> pip install matplotlib
---> pip install pathlib
+--> pip install sys
+--> pip install os
 ```
 
 ## Display graph and solution on connected network
@@ -119,9 +121,11 @@ Note : We can see in the matrix given in the topic that go to city G4 directly f
 # Part 3
 
 ## Libraries that have to be installed :
+```
 --> pip install csv
-
---> pip install pathlib
+--> pip install sys
+--> pip install os
+```
 
 #### Dataset created
 In this part we use a dataset composed of the ID of a member, his name, and the id of the member that certified him.
@@ -151,9 +155,11 @@ All the ID numbers could be changed in the mainif you want to test with other.
 
 # Part 4
 ## Libraries that have to be installed :
+```
 --> pip install csv
-
---> pip install pathlib
+--> pip install sys
+--> pip install os
+```
 
 ## Dataset used
 In this final part, the work was focused on tree manipulation. We had to create a dataset of our choice and use it.

@@ -1,5 +1,5 @@
 import csv
-from pathlib import Path
+import sys, os
 from Part4Trees import Node, BinaryTree, CreateTree, CreateAVL
 
 def display(self):
@@ -55,8 +55,8 @@ def _display_aux(self):
 
 def GiveDataSetMembers():
     #finding the folder and file
-    data_folder = Path("MetroOfGotham/")
-    file_to_open = data_folder / "ProofAVLWorksPart4.csv"
+    file_to_open = os.path.join(sys.path[0], "ProofAVLWorksPart4.csv")
+    
     with open(file_to_open, "r") as csvfile:
         lines = csv.reader(csvfile)
         dataset=list(lines)

@@ -1,10 +1,10 @@
 import csv
-from pathlib import Path
+import sys, os
 
 def GiveDataSet():
     #finding the folder and file
-    data_folder = Path("MetroOfGotham/")
-    file_to_open = data_folder / "DatasetPart3.csv"
+    file_to_open = os.path.join(sys.path[0], "DatasetPart3.csv")
+
     with open(file_to_open, "r") as csvfile:
         lines = csv.reader(csvfile)
         dataset=list(lines)
@@ -12,8 +12,8 @@ def GiveDataSet():
 
 def GiveDataSet2():
     #finding the folder and file
-    data_folder = Path("MetroOfGotham/")
-    file_to_open = data_folder / "DatasetPart3NotSort.csv"
+    file_to_open = os.path.join(sys.path[0], "DatasetPart3NotSort.csv")
+    
     with open(file_to_open, "r") as csvfile:
         lines = csv.reader(csvfile)
         dataset=list(lines)
