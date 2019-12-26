@@ -15,7 +15,7 @@ from pathlib import Path
 def GiveDataSetStation():
     #finding the folder and file
     data_folder = Path("MetroOfGotham/")
-    file_to_open = data_folder / "Station.csv"
+    file_to_open = data_folder / "StationPart1.csv"
     with open(file_to_open, "r") as csvfile:
         lines = csv.reader(csvfile)
         dataset=list(lines)
@@ -25,7 +25,7 @@ def GiveDataSetStation():
 def GiveDataSetEdge():
     #finding the folder and file
     data_folder = Path("MetroOfGotham/")
-    file_to_open = data_folder / "Edge.csv"
+    file_to_open = data_folder / "EdgePart1.csv"
     with open(file_to_open, "r") as csvfile:
         lines = csv.reader(csvfile)
         dataset=list(lines)

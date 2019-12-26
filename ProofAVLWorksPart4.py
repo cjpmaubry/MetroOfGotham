@@ -1,6 +1,6 @@
 import csv
 from pathlib import Path
-from Part4 import Node, BinaryTree, CreateTree, SearchName, CreateAVL
+from Part4Trees import Node, BinaryTree, CreateTree, CreateAVL
 
 def display(self):
     lines, _, _, _ = _display_aux(self)
@@ -56,7 +56,7 @@ def _display_aux(self):
 def GiveDataSetMembers():
     #finding the folder and file
     data_folder = Path("MetroOfGotham/")
-    file_to_open = data_folder / "ProofAVLWorks.csv"
+    file_to_open = data_folder / "ProofAVLWorksPart4.csv"
     with open(file_to_open, "r") as csvfile:
         lines = csv.reader(csvfile)
         dataset=list(lines)
@@ -64,18 +64,15 @@ def GiveDataSetMembers():
 
 
 def main():
-    #Question 1
+    #smaller dataset of short names and only 25 members
     test_dataset = GiveDataSetMembers()
 
-    binary_tree = CreateTree(test_dataset)
-    binary_tree.print_inorder(binary_tree.root)
-
-    SearchName(binary_tree,'tg')
-
-    #Question 2
     AVL=CreateAVL(test_dataset)
+
     AVL.print_inorder(AVL.root)
     display(AVL.root)
+
+    AVL.SearchName('tg')
     
 
 if __name__ == "__main__":
