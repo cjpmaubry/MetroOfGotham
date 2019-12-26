@@ -120,15 +120,15 @@ def mergeSort(dataset):
 
 
 #QUESTION 4
-#The three are launch in the main
-# A Special database (same as DatasetPart3 but where this ID are not already sorted) are used for this question
+#The three are launched in the main
+# A Special database (same as DatasetPart3 but where this ID are not already sorted) is used for this question
 
 
 def main():
     dataset=GiveDataSet2() #Database not sorted
-    print("Use method of question 1")
+    print("Using method of question 1")
     FindID(dataset,10)
-    print("Use method of question 2 and 3 (sort with 3 and find ID with 2)")
+    print("\nUsing method of question 2 and 3 (sort with 3 and find ID with 2)")
     mergeSort(dataset)
     FindIDWithDichotomic(dataset,12)
 

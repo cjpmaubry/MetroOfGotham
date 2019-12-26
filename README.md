@@ -114,3 +114,27 @@ All the ID numbers could be changed in the mainif you want to test with other.
 --> pip install csv
 
 --> pip install pathlib
+
+## Dataset used
+In this final part, the work was focused on tree manipulation. We had to create a dataset of our choice and use it.
+We decided to used a list of the names of members, but **crypted** : the names are written in ASCII.
+The program taked a csv file containing the names of Jocker's members and then saves the names in a list but by applying a methode that takes the name and return the **ASCII version of the name**.
+
+This allows us to have a dataset composed of numbers, meaning that we will be able to build trees that need to compare values. our dataset contains 100 names.
+
+### 4-1 Suggest and show a method to manage a database in a binary tree; present a method to find any value in the tree (show both complexity). Show the methods with your own example (at least 50 data).
+
+
+### 4-2 Suggest and show a method to improve the database management thanks to the works of the soviets Adelson-Velsky and Landis with the previous database.
+
+
+### 4-3 Suggest and show a method that sort the database un a tree where the node can store multiple value like the works of Bayer and McCreight. Take your own example (at least 100 data) where each node can store up to 5 values.
+In order to create a tree capable of storing multiple values in each node, wa decided to create a **BTree**.
+The tree follows the works if Bayer and McCreight, and in our case we had to ba able to store up to **5 values per node, so U = 5+1**.
+Since U = 6, and U = t * 2, we knew that the **minimum degree** of our tree should be t = 3.
+We had to create two new classes in order to implement this kind of tree, BTreeNode and BTree.
+
+The nodes can contain up to 5 values, and when a child or node is full of values, a method will split thqt child into two new nodes. The bottom part of the tree will have more values and children per node than the upper part.
+
+We decided to display the tree in order just to show that everything is in the correct place.
+
